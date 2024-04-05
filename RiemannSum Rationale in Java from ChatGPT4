@@ -1,0 +1,39 @@
+emann example runnable complete program
+ChatGPT
+
+Here is a simple Java program that demonstrates the concept of a Riemann sum, which is a method for approximating the area under a curve. This example approximates the area under the curve of f(x) = x^2 on the interval [0, 1] using a Riemann sum:
+
+java
+
+public class RiemannSumExample {
+
+    // Function to integrate
+    public static double f(double x) {
+        return x * x; // Example function: f(x) = x^2
+    }
+
+    // Method to approximate the area under the curve using a Riemann sum
+    public static double riemannSum(int intervals) {
+        double area = 0.0;
+        double delta = 1.0 / intervals; // Width of each interval
+        for (int i = 0; i < intervals; i++) {
+            double x = i * delta;
+            area += f(x) * delta; // Height * width for each rectangle
+        }
+        return area;
+    }
+
+    public static void main(String[] args) {
+        int intervals = 1000; // Number of intervals to use
+        double approximateArea = riemannSum(intervals);
+        System.out.println("Approximate area under the curve: " + approximateArea);
+    }
+}
+
+In this program:
+
+    f(x) is the function we want to integrate. Here, it's defined as f(x) = x^2.
+    riemannSum(intervals) is the method that computes the Riemann sum approximation for the area under f(x) between 0 and 1. It divides the interval into smaller sub-intervals (specified by intervals) and sums up the area of rectangles under the curve, with each rectangle's height determined by the function's value at the left endpoint of the sub-interval.
+    main method sets the number of intervals to 1000 and prints out the approximate area calculated by the Riemann sum method.
+
+You can run this Java program to see the approximate area under f(x) = x^2 from 0 to 1. Adjusting the number of intervals will change the accuracy of the approximation.
